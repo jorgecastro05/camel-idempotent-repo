@@ -18,25 +18,24 @@ public class MySpringBootRouter extends RouteBuilder {
         super.getContext().setStreamCaching(true);
         super.getContext().setUseMDCLogging(true);
 
-        from("timer:initCars1?period=5000").routeId("consume-cars-database-1")
+        from("timer:initCars1?period=5000").routeId("consume-cars-worker-1")
                 .log("Init route consume cars database ${id}")
                 .to("sql:select * from CARS?dataSource=#dataSource")
                 .log("number of results returned: ${body.size()}")
                 .split(body())
                 .idempotentConsumer(simple("${body[id]}")).messageIdRepositoryRef("infinispanIdempotentRepository")
                 .delay(simple("${random(100,500)}")) //simulate a process with the entry
-                .log("Car found: ${body}")
+                .log("Car processed: ${body}")
                 .end();
 
-        from("timer:initCars2?period=5000").routeId("consume-cars-database-2")
+        from("timer:initCars2?period=5000").routeId("consume-cars-worker-2")
                 .log("Init route consume cars database ${id}")
                 .to("sql:select * from CARS?dataSource=#dataSource")
                 .log("number of results returned: ${body.size()}")
                 .split(body())
                 .idempotentConsumer(simple("${body[id]}")).messageIdRepositoryRef("infinispanIdempotentRepository")
                 .delay(simple("${random(100,500)}")) //simulate a process with the entry
-                .log("Car found: ${body}")
-                .bean("transformationComponent","markEntryAsFailed" )
+                .log("Car processed: ${body}")
                 .end();
 
     }

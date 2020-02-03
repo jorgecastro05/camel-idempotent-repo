@@ -1,8 +1,10 @@
-create table IF NOT EXISTS CARS (
-	id INT,
+drop table IF EXISTS CARS;
+create table CARS (
+	id INT NOT NULL,
 	brand VARCHAR(50),
 	model VARCHAR(50),
-	year VARCHAR(50)
+	year VARCHAR(50),
+	PRIMARY KEY (id)
 );
 delete from CARS;
 insert into CARS (id, brand, model, year) values (1, 'Hyundai', 'Tiburon', 1999);
