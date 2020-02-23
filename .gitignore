@@ -1,3 +1,5 @@
 *.iml
 /target
 .idea
+infispan-idempotent-repo/target
+kafka-idempotent-repo/target
