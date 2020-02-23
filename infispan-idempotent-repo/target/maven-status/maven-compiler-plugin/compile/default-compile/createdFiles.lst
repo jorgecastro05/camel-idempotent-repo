@@ -1,0 +1,3 @@
+com/example/camel/IdempotentRepoConfiguration.class
+com/example/camel/DatabaseConfiguration.class
+com/example/camel/MyCallbackHandler.class

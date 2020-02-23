@@ -27,17 +27,6 @@ public class MySpringBootRouter extends RouteBuilder {
                 .delay(simple("${random(100,500)}")) //simulate a process with the entry
                 .log("Car processed: ${body}")
                 .end();
-
-        from("timer:initCars2?period=5000").routeId("consume-cars-worker-2")
-                .log("Init route consume cars database ${id}")
-                .to("sql:select * from CARS?dataSource=#dataSource")
-                .log("number of results returned: ${body.size()}")
-                .split(body())
-                .idempotentConsumer(simple("${body[id]}")).messageIdRepositoryRef("infinispanIdempotentRepository")
-                .delay(simple("${random(100,500)}")) //simulate a process with the entry
-                .log("Car processed: ${body}")
-                .end();
-
     }
 
 }

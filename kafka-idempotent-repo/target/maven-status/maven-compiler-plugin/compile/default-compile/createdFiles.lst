@@ -1,0 +1,4 @@
+com/example/camel/MySpringBootApplication.class
+com/example/camel/BeansConfiguration.class
+com/example/camel/MySpringBootRouter.class
+com/example/camel/TransformationComponent.class
