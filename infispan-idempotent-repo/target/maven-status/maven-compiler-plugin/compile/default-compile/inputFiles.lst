@@ -1,6 +1,0 @@
-/home/jet/IdeaProjects/camel-idempotent-repo/infispan-idempotent-repo/src/main/java/com/example/camel/MySpringBootRouter.java
-/home/jet/IdeaProjects/camel-idempotent-repo/infispan-idempotent-repo/src/main/java/com/example/camel/DatabaseConfiguration.java
-/home/jet/IdeaProjects/camel-idempotent-repo/infispan-idempotent-repo/src/main/java/com/example/camel/IdempotentRepoConfiguration.java
-/home/jet/IdeaProjects/camel-idempotent-repo/infispan-idempotent-repo/src/main/java/com/example/camel/TransformationComponent.java
-/home/jet/IdeaProjects/camel-idempotent-repo/infispan-idempotent-repo/src/main/java/com/example/camel/MyCallbackHandler.java
-/home/jet/IdeaProjects/camel-idempotent-repo/infispan-idempotent-repo/src/main/java/com/example/camel/MySpringBootApplication.java
