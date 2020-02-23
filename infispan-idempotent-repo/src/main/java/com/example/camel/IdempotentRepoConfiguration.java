@@ -23,11 +23,11 @@ public class IdempotentRepoConfiguration {
         clientBuilder
                 .addServer()
                 .host(host)
-                .port(port)
-                .security().authentication()
-                .enable()
-                .saslMechanism("DIGEST-MD5")
-                .callbackHandler(new MyCallbackHandler(user, "ApplicationRealm", password.toCharArray()));
+                .port(port);
+                //.security().authentication()
+                //.enable()
+                //.saslMechanism("DIGEST-MD5")
+                //.callbackHandler(new MyCallbackHandler(user, "ApplicationRealm", password.toCharArray()));
         RemoteCacheManager remoteCacheManager = new RemoteCacheManager(clientBuilder.build());
         return remoteCacheManager;
     }
