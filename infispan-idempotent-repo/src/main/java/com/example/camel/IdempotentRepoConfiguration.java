@@ -1,6 +1,7 @@
 package com.example.camel;
 
 import org.apache.camel.component.infinispan.processor.idempotent.InfinispanIdempotentRepository;
+import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -24,11 +25,8 @@ public class IdempotentRepoConfiguration {
                 .addServer()
                 .host(host)
                 .port(port);
-                //.security().authentication()
-                //.enable()
-                //.saslMechanism("DIGEST-MD5")
-                //.callbackHandler(new MyCallbackHandler(user, "ApplicationRealm", password.toCharArray()));
         RemoteCacheManager remoteCacheManager = new RemoteCacheManager(clientBuilder.build());
+        
         return remoteCacheManager;
     }
 
